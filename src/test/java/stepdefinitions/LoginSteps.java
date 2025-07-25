@@ -14,16 +14,25 @@ public class LoginSteps extends BaseClass {
 
 	@Given("I open the Saucedemo login page")
 	public void open_login_page() {
-		setup();
+		
 		loginPage = new LoginPage(driver);
-		System.out.println("Application is Launched");
+		System.out.println("===== Application is Up and Running=======");
 
 	}
 
-	@When("I enter username")
+	// Code for standard_user login
+	@When("I enter username standard user")
 	public void enter_username() {
 
 		loginPage.enterUsername("standard_user");
+		System.out.println("Username Entered");
+	}
+	
+	// Code for Multiple Login
+	@When("I enter {string}")
+	public void enter_username(String Uname) {
+
+		loginPage.enterUsername(Uname);
 		System.out.println("Username Entered");
 	}
 
