@@ -27,6 +27,12 @@ public class LoginPage extends BaseClass {
 	public void enterPassword(String password) {
 		driver.findElement(passwordField).sendKeys(password);
 	}
+	
+	// To validate we are on Login Page
+	public boolean validateLoginPage() {
+		
+		return driver.findElement(loginButton).isDisplayed();
+	}
 
 	public HomePage clickLogin() {
 		driver.findElement(loginButton).click();

@@ -43,9 +43,10 @@ public class LoginSteps extends BaseClass {
 	}
 
 	@And("I click the login button")
-	public void click_login_button() {
+	public void click_login_button() throws InterruptedException {
 		homePage=loginPage.clickLogin();
 		System.out.println("Login Clicked");
+		Thread.sleep(2000);
 	}
 
 	@Then("I should see the Products page")
@@ -53,7 +54,7 @@ public class LoginSteps extends BaseClass {
 		Boolean result=homePage.productsTextPresence();
 		Assert.assertTrue(result);
 		System.out.println("Verification Done");
-		teardown();
+		
 	}
 
 }
