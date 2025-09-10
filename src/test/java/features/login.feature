@@ -22,3 +22,14 @@ Feature: Saucedemo login
       | standard_user | 
       | problem_user |
       | performance_glitch_user |
+      
+      
+      
+    @InvalidLogin  
+    Scenario: Login with invalid credentials
+    Given I open the Saucedemo login page
+    When I enter username locked_out_user
+    And I enter password
+    And I click the login button
+    Then Validate Invalid Login Error
+     

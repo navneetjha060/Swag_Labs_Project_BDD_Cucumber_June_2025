@@ -14,7 +14,7 @@ public class LoginSteps extends BaseClass {
 
 	@Given("I open the Saucedemo login page")
 	public void open_login_page() {
-		
+
 		loginPage = new LoginPage(driver);
 		System.out.println("===== Application is Up and Running=======");
 
@@ -27,7 +27,16 @@ public class LoginSteps extends BaseClass {
 		loginPage.enterUsername("standard_user");
 		System.out.println("Username Entered");
 	}
-	
+
+	// Code for invalid login credential
+	@When("I enter username locked_out_user")
+	public void i_enter_username_locked_out_user() {
+		
+		System.out.println("===Entering Invalid Login Credential======");
+		loginPage.enterUsername("locked_out_user");
+
+	}
+
 	// Code for Multiple Login
 	@When("I enter {string}")
 	public void enter_username(String Uname) {
@@ -44,17 +53,24 @@ public class LoginSteps extends BaseClass {
 
 	@And("I click the login button")
 	public void click_login_button() throws InterruptedException {
-		homePage=loginPage.clickLogin();
+		homePage = loginPage.clickLogin();
 		System.out.println("Login Clicked");
 		Thread.sleep(2000);
 	}
 
 	@Then("I should see the Products page")
 	public void verify_products_page() {
-		Boolean result=homePage.productsTextPresence();
+		Boolean result = homePage.productsTextPresence();
 		Assert.assertTrue(result);
 		System.out.println("Verification Done");
-		
+
+	}
+
+	@Then("Validate Invalid Login Error")
+	public void validate_invalid_login_error() {
+		System.out.println("=======Invalid Login Detected======");
+		boolean res=loginPage.invalidLogin();
+		Assert.assertTrue(res);
 	}
 
 }
