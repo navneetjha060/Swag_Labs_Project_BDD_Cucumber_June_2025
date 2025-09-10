@@ -17,6 +17,7 @@ public class LoginPage extends BaseClass {
 	private By usernameField = By.id("user-name");
 	private By passwordField = By.id("password");
 	private By loginButton = By.id("login-button");
+	private By loginError = By.xpath("//h3[@data-test=\"error\"]");
 
 	// Actions
 
@@ -39,6 +40,12 @@ public class LoginPage extends BaseClass {
 		return new HomePage(driver);
 		
 		// Page Chaining
+	}
+	
+	public boolean invalidLogin() {
+		
+		System.out.println(driver.findElement(loginError).getText());
+		return driver.findElement(loginError).isDisplayed();
 	}
 
 }
