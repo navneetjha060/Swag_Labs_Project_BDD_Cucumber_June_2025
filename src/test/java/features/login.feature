@@ -1,5 +1,6 @@
 Feature: Saucedemo login
 
+  @Smoke
   Scenario: Login with valid credentials
     Given I open the Saucedemo login page
     When I enter username standard user
@@ -25,7 +26,7 @@ Feature: Saucedemo login
       
       
       
-    @InvalidLogin  
+    @Smoke  
     Scenario: Login with invalid credentials
     Given I open the Saucedemo login page
     When I enter username locked_out_user
