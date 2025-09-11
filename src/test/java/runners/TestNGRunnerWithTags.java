@@ -6,7 +6,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/java/features", // relative path to your .feature files
-		glue = { "stepdefinitions", "Hooks"}, tags = "@InvalidLogin",
+		glue = { "stepdefinitions", "Hooks"}, tags = "@Smoke",
 		
 		
 		// package names for step defs + hooks

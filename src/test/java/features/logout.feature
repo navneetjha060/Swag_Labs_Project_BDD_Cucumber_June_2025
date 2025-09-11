@@ -1,5 +1,6 @@
 Feature: Saucedemo Logout Functionality Check
 
+  @Smoke
   Scenario: Logout functionality check 
     Given I open the Saucedemo login page
     When I enter username standard user
